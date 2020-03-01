@@ -14,46 +14,45 @@ import com.cs.consoleDrawing.exceptions.OutOfCanavsPaperException;
 import com.cs.consoleDrawing.model.CanvasModel;
 
 @RunWith(SpringRunner.class)
-public class DrawRectangleServiceImplTest {
+public class FillBucketServiceImplTest {
 
 	CanvasModel canvasModel;
 	List argsList;
 
-	DrawRectangleServiceImpl drawRectangleServiceImpl;
+	FillBucketServiceImpl fillBucketServiceImpl;
 
 	@Before
 	public void setup() {
 		canvasModel = new CanvasModel();
 		canvasModel.setHeightOfCanvas(4);
-		canvasModel.setWidthOfCanvas(20);
-		canvasModel.setBitMapOfCanvas(new char[4 + 2][20]);
+		canvasModel.setWidthOfCanvas(4);
+		canvasModel.setBitMapOfCanvas(new char[4 + 2][4 + 2]);
 
 		argsList = new ArrayList();
-		argsList.add("R");
-		argsList.add(14);
-		argsList.add(1);
-		argsList.add(18);
+		argsList.add("B");
+		argsList.add(2);
 		argsList.add(3);
+		argsList.add('o');
 
-		drawRectangleServiceImpl = new DrawRectangleServiceImpl();
+		fillBucketServiceImpl = new FillBucketServiceImpl();
 	}
 
 	/**
-	 * This Test is to validate if rectangle periphery is with character x
-	 * fillerChar: x
+	 * This Test is to validate if filler is at right position FillerChar: o
 	 */
 	@Test
-	public void testPerformActionForRectanglePeriphery() {
-		canvasModel = drawRectangleServiceImpl.performAction(canvasModel, argsList);
-		Assert.assertEquals('x', canvasModel.getBitMapOfCanvas()[(int) argsList.get(2)][(int) argsList.get(1)]);
+	public void testPerformActionForCorrectFill() {
+		canvasModel = fillBucketServiceImpl.performAction(canvasModel, argsList);
+		Assert.assertEquals('o', canvasModel.getBitMapOfCanvas()[(int) argsList.get(2)][(int) argsList.get(1)]);
 	}
 
 	/**
-	 * This Test is to validate if rectangle is hollow fillerChar: x
+	 * This Test is to validate if filler had not overridden any existing shape
+	 * FillerChar: o
 	 */
 	@Test
-	public void testPerformActionForRectangleisHollow() {
-		canvasModel = drawRectangleServiceImpl.performAction(canvasModel, argsList);
+	public void testPerformActionForFillerOverride() {
+		canvasModel = fillBucketServiceImpl.performAction(canvasModel, argsList);
 		Assert.assertNotEquals('x',
 				canvasModel.getBitMapOfCanvas()[(int) argsList.get(2) + 1][(int) argsList.get(1) + 1]);
 	}
@@ -64,11 +63,11 @@ public class DrawRectangleServiceImplTest {
 	 */
 	@Test
 	public void testPerformActionForOutOfCanvas() {
-		// Changing the value of x1 to 21 as canvas width is 20
-		argsList.set(3, 21);
+		// Changing the value of x1 to 5 as canvas width is 4
+		argsList.set(2, 5);
 		boolean isExceptionRaised = Boolean.FALSE;
 		try {
-			canvasModel = drawRectangleServiceImpl.performAction(canvasModel, argsList);
+			canvasModel = fillBucketServiceImpl.performAction(canvasModel, argsList);
 		} catch (OutOfCanavsPaperException ocp) {
 			isExceptionRaised = Boolean.TRUE;
 			Assert.assertEquals(ConsoleDrawingConstants.OUT_OF_CANVAS_MSSAGE, ocp.getMessage());

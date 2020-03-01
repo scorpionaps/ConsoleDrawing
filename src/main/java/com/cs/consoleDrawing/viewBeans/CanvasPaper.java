@@ -1,10 +1,19 @@
 package com.cs.consoleDrawing.viewBeans;
 
+/**
+ * 
+ * @author anand
+ * 
+ *         This is view FormDTO which holds form data and can be printed on
+ *         console.
+ *
+ */
 public class CanvasPaper {
-	
+
 	private final int cHeight;
 	private final int cWidth;
-	public char [][] pixMap;
+	public char[][] pixMap;
+
 	/**
 	 * @param cHeight
 	 * @param cWidth
@@ -13,20 +22,23 @@ public class CanvasPaper {
 		super();
 		this.cHeight = cHeight;
 		this.cWidth = cWidth;
-		this.pixMap = new char [cHeight][cWidth];
+		this.pixMap = new char[cHeight][cWidth];
 	}
+
 	/**
 	 * @return the cHeight
 	 */
 	public int getcHeight() {
 		return cHeight;
 	}
+
 	/**
 	 * @return the cWidth
 	 */
 	public int getcWidth() {
 		return cWidth;
 	}
+
 	/**
 	 * @return the pixMap
 	 */

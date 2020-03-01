@@ -34,8 +34,8 @@ public class ViewToModelMapperTest {
 	public void testMapDTOtoModel()
 	{
 		canvasModel = viewToModelMapper.mapDTOtoModel(canvasPaper);
-		Assert.assertEquals(canvasPaper.getcHeight(), canvasModel.getHeightOfCanvas());
-		Assert.assertEquals(canvasPaper.getcWidth(), canvasModel.getWidthOfCanvas());
+		Assert.assertEquals(canvasPaper.getcHeight(), canvasModel.getHeightOfCanvas()-2);
+		Assert.assertEquals(canvasPaper.getcWidth(), canvasModel.getWidthOfCanvas()-2);
 		Assert.assertEquals(canvasPaper.getPixMap()[2][3], canvasModel.getBitMapOfCanvas()[2][3]);
 		
 	}
