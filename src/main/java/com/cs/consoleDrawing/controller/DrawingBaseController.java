@@ -23,8 +23,8 @@ import com.cs.consoleDrawing.viewBeans.CanvasPaper;
 /**
  * @author anand
  * 
- * This is Base Controller which drives the program flow via executeCommand.
- * This is Controller of MVC design pattern.
+ *         This is Base Controller which drives the program flow via
+ *         executeCommand. This is Controller of MVC design pattern.
  *
  */
 @Controller
@@ -39,10 +39,13 @@ public class DrawingBaseController {
 	DrawingConsoleView drawingConsoleView;
 
 	/**
-	 * 1. executeCommand is single method to start processing of given command Line arguments
-	 * 2. Based on Commands, designated service is returned from ShapeBuilderFactory and performAction method is called.
-	 * 3. CanvasModel is return of serviceCall and viewModelMapper is used to map CanvasModel to CanvasPaper
-	 * 4. CanvasPaper is View FormDTO and processed by drawingConsoleView to print CanvasPaper to console.
+	 * 1. executeCommand is single method to start processing of given command Line
+	 * arguments 2. Based on Commands, designated service is returned from
+	 * ShapeBuilderFactory and performAction method is called. 3. CanvasModel is
+	 * return of serviceCall and viewModelMapper is used to map CanvasModel to
+	 * CanvasPaper 4. CanvasPaper is View FormDTO and processed by
+	 * drawingConsoleView to print CanvasPaper to console.
+	 * 
 	 * @param commandLine: String
 	 */
 	public void executeCommand(String commandLine) {
@@ -52,7 +55,7 @@ public class DrawingBaseController {
 			char command = splitArrOfCommands[0].charAt(0);
 			List argsList = new ArrayList();
 			argsList = Arrays.asList(splitArrOfCommands);
-			if (null == canvasModel && 'C' != command) {
+			if (null == canvasModel && ('C' != command && 'Q' != command)) {
 				throw new WrongArgumentsException(ConsoleDrawingConstants.PLEASE_SELECT_CANAVAS_FIRST);
 			}
 			switch (command) {
