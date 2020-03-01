@@ -30,14 +30,14 @@ Please follow below instructions to get a copy of the project up and running on 
 A step by step series of examples that tell you how to get a development env running
 
 1. Clone the project from gitHub repository [GitHub Link](https://github.com/scorpionaps/ConsoleDrawing.git)
-2. Copy/Download the zip Project from Dropbox [DropBox Link] ()
+2. Copy/Download the zip Project from Dropbox [DropBox Link] (https://www.dropbox.com/s/2rmqkrffhwybw9e/AnandPratapSingh.zip?dl=0)
 3. Open Developemt IDE for Code Review and Run, Import "Exisitng Maven Project" into your local workspace.
 ## Running the tests
 	1. From Command Line: Go to Project root folder--> Run "mvn test"
 	2. From IDE: Select Mavan Build/Run config, select Project root as Base Directory. Set goal as "test".  Click on Run(Assumption, JRE is configured correctly)
 	3. From IDE: Select "/consoleDrawing/src/test/java" and run as Junit Test.
 ## Running the Application
-	1. From Command Line: Go to Project /consoleDrawing/target folder--> Run java -jar consoleDrawing-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+	1. From Command Line: Go to Project /consoleDrawing/target folder--> Run java -jar consoleDrawing-1.0.jar
 	2. From IDE: Select Mavan Build/Run config, select Project root as Base Directory. Set goal as "exec:java".  Click on Run(Assumption, JRE is configured correctly)
 	3. From IDE: Select "/consoleDrawing/" and run as Java application.
 
